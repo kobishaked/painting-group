@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import gql from 'graphql-tag';
 import { useMutation } from "@apollo/react-hooks";
-
-
-
-
-
+import DrawingContext from '../contexts/DrawingContext'
 
 const Update_Color = gql`
 mutation updatePixel($id: Int!, $color: String!) {
@@ -18,22 +14,43 @@ mutation updatePixel($id: Int!, $color: String!) {
 }
 `;
 
-
-
 const Pixel = ({ id, color, newColor }) => {
   const [pixelColor, changeColor] = useState(color);
   const [updatePixelColor] = useMutation(Update_Color);
+  const { isDrawing, setIsDrawing } = useContext(DrawingContext);
+
 
   useEffect(() => {
     changeColor(color);
-  
   }, [color])
 
 
   return (
     <span
       className="pixel"
+      // onMouseDown={() => {
+      //   changeColor(newColor);
+      //   updatePixelColor({ variables: { id: id, color: newColor } });
+      //   setIsDrawing(true)
+      // }}
+      onMouseMove={() => {
+        if (isDrawing) {
+          changeColor(newColor);
+          updatePixelColor({ variables: { id: id, color: newColor } });
+        }
+      }}
+      // onMouseUp={() => {
+      //   // changeColor(newColor);
+      //   // updatePixelColor({ variables: { id: id, color: newColor } });
+      //   setDrawing(false)
+      // }}
       onClick={() => {
+        if (isDrawing) {
+          setIsDrawing(false)
+        }
+        else {
+          setIsDrawing(true)
+        }
         changeColor(newColor);
         updatePixelColor({ variables: { id: id, color: newColor } });
       }}
@@ -43,4 +60,3 @@ const Pixel = ({ id, color, newColor }) => {
 };
 
 export default Pixel;
-

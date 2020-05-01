@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Pixel from "./components/Pixel";
 import ColorPicker from "./components/ColorPicker";
 import { useSubscription } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
+import { DrawingContextProvider } from './contexts/DrawingContext'
 
 const pixels = new Array(400).fill("white");
 
@@ -24,23 +25,27 @@ function App() {
   }
 
   return (
-    <div className="content">
-      <div className="logo">Draw</div>
-      <p>Pick a Color</p>
-      <ColorPicker changeColor={changeColor} />
-      <p>Click a Pixel</p>
-      <div className="container">
-        {data.pixels.map((pixel) => (
-          <Pixel
-            color={pixel.color}
-            id={pixel.id}
-            key={pixel.id}
-            newColor={color}
-          />
-        ))}
+    <DrawingContextProvider>
+      <div className="content">
+        <div className="logo">Draw</div>
+        <p>Pick a Color</p>
+        <ColorPicker changeColor={changeColor} />
+        <p>Click a Pixel</p>
+        <div className="container">
+          {data.pixels.map((pixel) => (
+            <Pixel
+              color={pixel.color}
+              id={pixel.id}
+              key={pixel.id}
+              newColor={color}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </DrawingContextProvider>
   );
 }
 
 export default App;
+
+
