@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/painting-group/static/css/main.4cd7b08f.chunk.css",
+    "main.js": "/painting-group/static/js/main.cccff0e5.chunk.js",
+    "main.js.map": "/painting-group/static/js/main.cccff0e5.chunk.js.map",
+    "runtime-main.js": "/painting-group/static/js/runtime-main.fc60f080.js",
+    "runtime-main.js.map": "/painting-group/static/js/runtime-main.fc60f080.js.map",
+    "static/js/2.db1b8e21.chunk.js": "/painting-group/static/js/2.db1b8e21.chunk.js",
+    "static/js/2.db1b8e21.chunk.js.map": "/painting-group/static/js/2.db1b8e21.chunk.js.map",
+    "index.html": "/painting-group/index.html",
+    "precache-manifest.62e560f97f7619164010046de2e76b85.js": "/painting-group/precache-manifest.62e560f97f7619164010046de2e76b85.js",
+    "service-worker.js": "/painting-group/service-worker.js",
+    "static/css/main.4cd7b08f.chunk.css.map": "/painting-group/static/css/main.4cd7b08f.chunk.css.map",
+    "static/js/2.db1b8e21.chunk.js.LICENSE.txt": "/painting-group/static/js/2.db1b8e21.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fc60f080.js",
+    "static/js/2.db1b8e21.chunk.js",
+    "static/css/main.4cd7b08f.chunk.css",
+    "static/js/main.cccff0e5.chunk.js"
+  ]
+}
