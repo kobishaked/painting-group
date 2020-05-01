@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Pixel from "./Pixel";
-import ColorPicker from "./ColorPicker";
+import Pixel from "./components/Pixel";
+import ColorPicker from "./components/ColorPicker";
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
