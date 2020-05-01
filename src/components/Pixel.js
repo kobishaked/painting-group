@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import gql from 'graphql-tag';
 import { useMutation } from "@apollo/react-hooks";
 
@@ -23,6 +23,13 @@ mutation updatePixel($id: Int!, $color: String!) {
 const Pixel = ({ id, color, newColor }) => {
   const [pixelColor, changeColor] = useState(color);
   const [updatePixelColor] = useMutation(Update_Color);
+
+  useEffect(() => {
+    changeColor(color);
+  
+  }, [color])
+
+
   return (
     <span
       className="pixel"
