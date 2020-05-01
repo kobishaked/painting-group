@@ -28,22 +28,25 @@ const Pixel = ({ id, color, newColor }) => {
   return (
     <span
       className="pixel"
-      // onMouseDown={() => {
-      //   changeColor(newColor);
-      //   updatePixelColor({ variables: { id: id, color: newColor } });
-      //   setIsDrawing(true)
-      // }}
+      onMouseDown={() => {
+        changeColor(newColor);
+        updatePixelColor({ variables: { id: id, color: newColor } });
+        setIsDrawing(true)
+      }}
       onMouseMove={() => {
         if (isDrawing) {
           changeColor(newColor);
           updatePixelColor({ variables: { id: id, color: newColor } });
         }
       }}
-      // onMouseUp={() => {
-      //   // changeColor(newColor);
-      //   // updatePixelColor({ variables: { id: id, color: newColor } });
-      //   setDrawing(false)
-      // }}
+      onMouseUp={() => {
+        // changeColor(newColor);
+        // updatePixelColor({ variables: { id: id, color: newColor } });
+        setIsDrawing(false)
+      }}
+
+
+
       onClick={() => {
         if (isDrawing) {
           setIsDrawing(false)
